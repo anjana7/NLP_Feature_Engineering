@@ -333,8 +333,6 @@ train.dropna(subset=['TRANS_CONV_TEXT'], inplace=True)
 
 
 X, vectorizer_text, vectorizer_link, label_encoder_Link, label_encoder_src = get_train_transforms(train)
-
-train = train.dropna(subset=['TRANS_CONV_TEXT'])
 y = train.Patient_Tag.values
 rfc = RandomForestClassifier(n_estimators=522, min_samples_split=10, min_samples_leaf=1, max_features='auto', max_depth=700, bootstrap=True).fit(X, y)
 
