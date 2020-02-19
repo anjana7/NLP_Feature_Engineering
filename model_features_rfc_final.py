@@ -296,6 +296,8 @@ def get_test_encoding(df1, df2): #df1 = test, df2 = df_test_features
     df_sub.Link = df_sub.Link.apply(encoding_link)
 
     df_sub['word_count'] = df2['TRANS_CONV_TEXT'].apply(lambda x: len(str(x).split(' ')))
+    df_sub['len_stopwords'] = df1.TRANS_CONV_TEXT.apply(lambda x: len(str(x).split(' ')))
+    df_sub.len_stopwords = df_sub.len_stopwords - df_sub.word_count
     
     return(df_sub)
 
